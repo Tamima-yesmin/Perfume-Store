@@ -151,14 +151,16 @@ const userController = {
         }
     },
 
-    // getAllUser: async (req, res) => {
-    //     try {
-    //         const user = await Users.find()
-    //         res.json(user)
-    //     } catch (err) {
-    //         return res.status(500).json({ msg: err.message })
-    //     }
-    // },
+
+
+    getAllUser: async (req, res) => {
+        try {
+            const user = await Users.find()
+            res.json(user)
+        } catch (err) {
+            return res.status(500).json({ msg: err.message })
+        }
+    },
 
     addCart: async (req, res) => {
         try {

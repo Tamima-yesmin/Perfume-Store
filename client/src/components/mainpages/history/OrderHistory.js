@@ -3,6 +3,7 @@ import { GlobalState } from '../../../GlobalState'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import './history.css'
+import AllUsers from './AllUsers';
 
 export default function OrderHistory() {
     const state = useContext(GlobalState)
@@ -32,6 +33,7 @@ export default function OrderHistory() {
     return (
         <div className="history-page container">
             {/* <h2>History</h2> */}
+            {/* <AllUsers /> */}
 
             <h4>You have {history.length} order</h4>
 

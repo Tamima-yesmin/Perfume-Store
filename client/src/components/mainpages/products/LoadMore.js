@@ -10,7 +10,7 @@ export default function LoadMore() {
         <div className="container my-5 d-flex justify-content-center ">
             <div>
                 {
-                    result < page * 4 ? ""
+                    result < page * 8 ? ""
                         : <button className='btn btn-sm  rounded-pill px-5 load-btn' onClick={() => setPage(page + 1)}>Load more...</button>
                 }
             </div>

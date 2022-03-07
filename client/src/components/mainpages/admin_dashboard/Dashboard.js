@@ -64,18 +64,18 @@ function Dashboard() {
 
     return (
         <>
-            <div className='container'>
+            <div className='container bg-secondary text-light'>
                 <div className='row my-5'>
-                    <div className='col-lg-2'>
-                        <ul class="nav flex-column list-group bg-light">
+                    <div className='col-lg-2 bg-dark  '>
+                        <ul class="nav fs-6 flex-column my-5 fw-bold list-group py-4">
                             <li class="nav">
-                                <a class="nav-link active" aria-current="page" href="/create_product">Create Product</a>
+                                <a class="nav-link active text-white mb-3" aria-current="page" href="/create_product">Create Product</a>
                             </li>
                             <li class="nav">
-                                <a class="nav-link" href="/category">Categories</a>
+                                <a class="nav-link text-white mb-3" href="/category">Categories</a>
                             </li>
                             <li class="nav">
-                                <a class="nav-link" href="/hist">Order History</a>
+                                <a class="nav-link text-white" href="/allUsers">Users</a>
                             </li>
                             {/* <li class="nav">
                                 <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -92,7 +92,7 @@ function Dashboard() {
                         </div>
                     </div> */}
 
-                    <div className='col-lg-10'>
+                    <div className="col-lg-10 text-white" >
                         <  OrderHistory />
                     </div>
                     {/* <div className='col-lg-4'>

@@ -55,6 +55,24 @@ export default function Cart() {
         addToCart(cart)
     }
 
+    const add = (id, event) => {
+        const value = event.target.value
+        //console.log("I do work", value, id)
+        //return
+        cart.forEach(item => {
+            if (item._id === id) {
+                if (item.countInStock < value) {
+                    toast.dark("Out of stock");
+                    return;
+                }
+                item.quantity = value
+            }
+        })
+
+        setCart([...cart])
+        addToCart(cart)
+    }
+
     const decrement = (id) => {
         cart.forEach(item => {
             if (item._id === id) {
@@ -103,7 +121,7 @@ export default function Cart() {
 
 
     return (
-        <div className="row mt-4 full-cart container-fluid">
+        <div className="row my-4 ms-2 full-cart container-fluid">
             <div className='col-9'>
                 <h4 className="m-4 fw-bolder ">Cart Items</h4>
 
@@ -113,11 +131,13 @@ export default function Cart() {
                     cart.map(product => (
                         <div className="row  " key={product._id}>
                             {/* detail cart */}
-                            <div className='col-lg-4 d-flex justify-content-center'>
+                            <div className='col-lg-1 d-flex justify-content-center'>
                                 <img src={product.images.url} alt="" className="img-edit" />
+
                             </div>
 
-                            <div className="row d-flex justify-content-between align-items-center box-detail ">
+
+                            <div className="row d-flex justify-content-evenly align-items-center box-detail ">
                                 {/* box-detail */}
 
 
@@ -127,26 +147,48 @@ export default function Cart() {
 
 
 
-                                <h6 className='col-lg-4'>&#2547; {product.price} × {product.quantity} = &#2547; {product.price * product.quantity}</h6>
-                                <div className="fs-4 cart-btn amount col-lg-3">
-                                    <biv className=" " onClick={() => decrement(product._id)} >  <i class="fas fa-minus-circle"></i> </biv>
+                                <h6 className='col-lg-5'>&#2547; {product.price} × {product.quantity} = &#2547; {product.price * product.quantity}</h6>
 
-                                    {/* <input type="number"
+                                {/* <div className="fs-4 d-flex justify-content-around align-items-center cart-btn amount col-lg-5">
+                                    <div className=" " onClick={() => decrement(product._id)} >  <i class="fas fa-minus-circle"></i> </div>
+
+                                    <input type="number"
                                         min="1"
-                                        placeholder={product.quantity} onClick={() => decrement(product._id)}
-                                        className="form-control form-control-lg mb-4 input" /> */}
+                                        placeholder={product.quantity}
+                                        onChange={(e) => add(product._id, e)}
+                                        className="form-control form-control-sm mb-4 input" />
 
 
-                                    <biv className=" " onClick={() => increment(product._id)} ><i class="fas fa-plus-circle"></i> </biv>
-                                </div>
+                                    <div className=" " onClick={() => increment(product._id)} ><i class="fas fa-plus-circle"></i> </div>
+                                </div> */}
 
-                                <div className="delete  fs-4 col-lg-1"
+                                {/* <div className="delete  fs-4 col-lg-1"
+                                    onClick={() => removeProduct(product._id)}>
+                                    <i class="far fa-trash-alt"></i>
+                                </div> */}
+
+
+                            </div>
+                            <div className="fs-4 d-flex justify-content-around align-items-center cart-btn amount col-lg-3">
+                                <div className=" " onClick={() => decrement(product._id)} >  <i class="fas fa-minus-circle"></i> </div>
+
+                                <input type="number"
+                                    min="1"
+                                    placeholder={product.quantity}
+                                    onChange={(e) => add(product._id, e)}
+                                    className="form-control form-control-sm m-2 input" />
+
+
+                                <div className=" " onClick={() => increment(product._id)} ><i class="fas fa-plus-circle"></i> </div>
+
+                                <div className="delete  fs-4  ms-4 "
                                     onClick={() => removeProduct(product._id)}>
                                     <i class="far fa-trash-alt"></i>
                                 </div>
 
-
                             </div>
+
+
                             <div><hr /></div>
                         </div>
 

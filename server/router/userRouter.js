@@ -19,4 +19,5 @@ router.patch('/addcart', auth, userController.addCart)
 router.patch('/addShippingAddress', auth, userController.addShippingAddress)
 
 router.get('/history', auth, userController.history)
+router.get('/getAllUser', userController.getAllUser)
 module.exports = router

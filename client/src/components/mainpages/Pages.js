@@ -19,7 +19,7 @@ import Dashboard from '../mainpages/admin_dashboard/Dashboard';
 import About from '../mainpages/about/About';
 import Shipping from './cart/Shipping';
 import PlaceOrder from './cart/PlaceOrder';
-
+import AllUsers from './history/AllUsers'
 import Pagination from './products/Pagination'
 
 import { GlobalState } from '../../GlobalState'
@@ -61,6 +61,9 @@ export default function Pages() {
                 <Route path="/category" exact component={isAdmin ? Categories : NotFound} />
                 <Route path="/create_product" exact component={isAdmin ? CreateProduct : NotFound} />
                 <Route path="/edit_product/:id" exact component={isAdmin ? CreateProduct : NotFound} />
+
+                <Route path="/allUsers" exact component={isAdmin ? AllUsers : NotFound} />
+
 
                 {/* <Route path="/hist" exact component={isAdmin ? OrderHistory : NotFound} />
                 <Route path="/hist/:id" exact component={isAdmin ? OrderDetails : NotFound} /> */}
